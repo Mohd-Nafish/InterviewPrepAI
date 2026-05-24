@@ -6,11 +6,11 @@ Built with **Expo SDK 56**, **TypeScript**, **NativeWind**, **React Navigation**
 
 ## Screenshots
 
-| Screen | Preview | Description |
-| --- | --- | --- |
-| **Home** | <img src="./assets/screenshots/home.png" alt="Home screen" width="260" /> | Paste a job description, select a target role, and generate a tailored AI prep plan. |
-| **Result** | <img src="./assets/screenshots/result.png" alt="Result screen" width="260" /> | View your prep plan summary and expand sections like Technical Questions, HR, and DSA. |
-| **History** | <img src="./assets/screenshots/history.png" alt="History screen" width="260" /> | Browse saved sessions, reopen previous plans, or delete ones you no longer need. |
+| Home | Result | History |
+| :---: | :---: | :---: |
+| <img width="240" alt="Home screen" src="./assets/screenshots/home.png" /> | <img width="240" alt="Result screen" src="./assets/screenshots/result.png" /> | <img width="240" alt="History screen" src="./assets/screenshots/history.png" /> |
+
+---
 
 ## Features
 
