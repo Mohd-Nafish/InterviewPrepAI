@@ -1,56 +1,124 @@
-# Welcome to your Expo app 👋
+# InterviewPrep AI
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+AI-powered interview preparation for React Native. Paste a job description, pick a target role, and get a structured prep plan with technical questions, HR questions, DSA topics, resume tips, and project suggestions.
 
-## Get started
+Built with **Expo SDK 56**, **TypeScript**, **NativeWind**, **React Navigation**, and the **Gemini API**.
 
-1. Install dependencies
+## Features
 
-   ```bash
-   npm install
-   ```
+- Generate interview prep plans from a job description
+- Role-based targeting (e.g. Frontend, Backend, Full Stack)
+- Structured results: technical, HR, DSA, resume, and project sections
+- Expandable result cards with session summary
+- Local session history (AsyncStorage)
+- Response caching and request deduplication to reduce API usage
+- Mock mode for development without API calls
+- Dark, glassmorphism UI with premium animations
 
-2. Start the app
+## Prerequisites
 
-   ```bash
-   npx expo start
-   ```
+- [Node.js](https://nodejs.org/) (LTS recommended)
+- [Expo CLI](https://docs.expo.dev/get-started/installation/) (via `npx expo`)
+- iOS Simulator, Android emulator, or [Expo Go](https://expo.dev/go)
+- A [Google AI Studio](https://aistudio.google.com/app/apikey) API key (for live AI generation)
 
-In the output, you'll find options to open the app in a
+## Getting started
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
+### 1. Install dependencies
 
 ```bash
-npm run reset-project
+npm install
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+### 2. Configure environment variables
 
-### Other setup steps
+Copy the example env file and add your Gemini API key:
 
-- To set up ESLint for linting, run `npx expo lint`, or follow our guide on ["Using ESLint and Prettier"](https://docs.expo.dev/guides/using-eslint/)
-- If you'd like to set up unit testing, follow our guide on ["Unit Testing with Jest"](https://docs.expo.dev/develop/unit-testing/)
-- Learn more about the TypeScript setup in this template in our guide on ["Using TypeScript"](https://docs.expo.dev/guides/typescript/)
+```bash
+cp .env.example .env
+```
 
-## Learn more
+Edit `.env`:
 
-To learn more about developing your project with Expo, look at the following resources:
+```env
+EXPO_PUBLIC_GEMINI_API_KEY=your_gemini_api_key_here
+```
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+Optional:
 
-## Join the community
+```env
+EXPO_PUBLIC_GEMINI_MODEL=gemini-2.0-flash
+EXPO_PUBLIC_USE_MOCK_AI=true
+```
 
-Join our community of developers creating universal apps.
+> **Important:** Never commit `.env` or share API keys. Only `EXPO_PUBLIC_*` variables are available in the client bundle.
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+### 3. Start the app
+
+```bash
+npx expo start
+```
+
+Then press `i` for iOS, `a` for Android, or `w` for web.
+
+Clear the Metro cache if env changes do not apply:
+
+```bash
+npx expo start --clear
+```
+
+## Scripts
+
+| Command | Description |
+| --- | --- |
+| `npm start` | Start Expo dev server |
+| `npm run ios` | Start and open iOS |
+| `npm run android` | Start and open Android |
+| `npm run web` | Start and open web |
+| `npm run lint` | Run ESLint |
+
+## Project structure
+
+```
+App.tsx                 # App entry (navigation + theme)
+src/
+  screens/              # Home, History, Result
+  navigation/           # React Navigation stack
+  components/
+    ui/                 # Design system (buttons, cards, inputs)
+    result/             # Result screen components
+    history/            # History list items
+  hooks/                # useInterviewPrep, useSessionHistory
+  services/             # Gemini API, cache, sessions, mock data
+  constants/            # Theme, roles, result sections
+  config/               # Environment config
+  types/                # TypeScript types
+  utils/                # Parsing, formatting, helpers
+```
+
+## How it works
+
+1. **Home** — User pastes a job description and selects a target role.
+2. **Generate** — `interviewService` checks mock mode, cache, then calls Gemini (with quota fallback to mock data when needed).
+3. **Result** — Parsed JSON is shown in expandable sections and saved to history.
+4. **History** — Past sessions are stored locally and can be reopened or deleted.
+
+## Development tips
+
+- **Mock AI:** Set `EXPO_PUBLIC_USE_MOCK_AI=true` in `.env` to skip Gemini calls during UI work.
+- **Quota limits:** Free-tier Gemini keys may hit rate limits; the app can fall back to mock data and show a notice on the result screen.
+- **Expo docs:** This project targets [Expo SDK 56](https://docs.expo.dev/versions/v56.0.0/).
+
+## Tech stack
+
+- React Native + Expo 56
+- TypeScript
+- React Navigation (native stack)
+- NativeWind v4 + Tailwind CSS
+- React Native Reanimated
+- AsyncStorage
+- Google Gemini API (REST)
+
+## License
+
+Private project. All rights reserved unless otherwise specified.
