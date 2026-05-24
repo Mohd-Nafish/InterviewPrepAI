@@ -119,6 +119,17 @@ src/
 - AsyncStorage
 - Google Gemini API (REST)
 
+## Screenshots
+
+| Screen | Screenshot | Description |
+| --- | --- | --- |
+| Home | <img width="1206" height="2622" alt="Simulator Screenshot - iPhone 17 - 2026-05-24 at 19 20 35" src="https://github.com/user-attachments/assets/ae2f716e-2197-4fc4-987a-15e8088ff5d0" /> <img width="1206" height="2622" alt="image" src="https://github.com/user-attachments/assets/65a1c0eb-d43e-4ada-8b8c-bd26e07a6d88" />
+
+(./assets/screenshots/home.png) | Paste a job description, select a target role, and generate a tailored AI prep plan. |
+| Result | <img width="1206" height="2622" alt="Simulator Screenshot - iPhone 17 - 2026-05-24 at 19 19 34" src="https://github.com/user-attachments/assets/e41b2b6f-a880-4dda-9141-a9edadc4d383" />
+(./assets/screenshots/result.png) | View your prep plan summary and expand sections like Technical Questions, HR, and DSA. |
+| History | (./assets/screenshots/history.png) | Browse saved sessions, reopen previous plans, or delete ones you no longer need. |
+
 ## License
 
 Private project. All rights reserved unless otherwise specified.
