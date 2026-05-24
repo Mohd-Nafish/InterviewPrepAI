@@ -4,6 +4,14 @@ AI-powered interview preparation for React Native. Paste a job description, pick
 
 Built with **Expo SDK 56**, **TypeScript**, **NativeWind**, **React Navigation**, and the **Gemini API**.
 
+## Screenshots
+
+| Screen | Preview | Description |
+| --- | --- | --- |
+| **Home** | <img src="./assets/screenshots/home.png" alt="Home screen" width="260" /> | Paste a job description, select a target role, and generate a tailored AI prep plan. |
+| **Result** | <img src="./assets/screenshots/result.png" alt="Result screen" width="260" /> | View your prep plan summary and expand sections like Technical Questions, HR, and DSA. |
+| **History** | <img src="./assets/screenshots/history.png" alt="History screen" width="260" /> | Browse saved sessions, reopen previous plans, or delete ones you no longer need. |
+
 ## Features
 
 - Generate interview prep plans from a job description
